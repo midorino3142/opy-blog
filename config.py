@@ -22,14 +22,14 @@ AUTHOR_NAME = 'Midorino'
 BLOG_NAME = 'Midorino\'s Blorg'
 
 ## strings: Define your URLs and your name below:
-DOMAIN = 'midorino.pro'
+DOMAIN = 'blorg.midorino.pro'
 BASE_URL = '//' + DOMAIN
-CSS_URL = './css/style.css' # rather than BASE_URL + '/css/style.css'
-BLOG_LOGO = '/img/midorino-logo.png' # Rather than BASE_URL + '/img/midorino-logo.png'
+CSS_URL = BASE_URL + '/css/style.css'
+BLOG_LOGO = BASE_URL + '/img/midorino-logo.png'
 DISQUS_NAME = 'midorino'  # gets placed in: '//publicvoit.disqus.com/embed.js'
 
 ## string: Email address to send comments to:
-COMMENT_EMAIL_ADDRESS = 'midorino+blog@pm.me'
+COMMENT_EMAIL_ADDRESS = 'midorino+blorg@pm.me'
 
 ## integer: Show this many article teasers on entry page
 NUMBER_OF_TEASER_ARTICLES = 10
