@@ -1,0 +1,28 @@
+* DONE About this blog :blog:lazyblorg:lb_persistent:
+CLOSED: [2021-08-01 Sun 00:00]
+:PROPERTIES:
+:CREATED:  [2021-08-01 Sun 00:00]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-08-01 Sun 00:00]
+:END:
+:PROPERTIES:
+:CREATED:  [2021-08-01 Sun 00:00]
+:ID: 2021-08-01-about-this-blog
+:END:
+
+This is a placeholder entry in order to be able to test internal
+links.
+
+* DONE How to use this blog :blog:lb_persistent:
+CLOSED: [2021-08-01 Sun 00:00]
+:PROPERTIES:
+:ID: 2021-08-01-how-to-use-this-blog
+:CREATED:  [2021-08-01 Sun 00:00]
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2021-08-01 Sun 00:00]
+:END:
+
+This is a placeholder entry in order to be able to test internal
+links.
