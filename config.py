@@ -47,11 +47,11 @@ NUMBER_OF_FEED_ARTICLES = 25
 ## string: This is the Org-mode property :ID: of your blog article which
 ##         is used for the about page of your blog.
 ## See example in: testdata/end_to_end_test/orgfiles/about-placeholder.org
-ID_OF_ABOUT_PAGE = '2021-08-01-about-this-blog'
+ID_OF_ABOUT_PAGE = '2021-08-01-about-this-blorg'
 
 ## string: This is the Org-mode property :ID: of your blog article which
 ##         is used for the "How to use this blog efficiently" page of your blog.
-ID_OF_HOWTO_PAGE = '2021-08-01-how-to-use-this-blog'
+ID_OF_HOWTO_PAGE = '2021-08-01-how-to-use-this-blorg'
 
 ## string: Your Twitter handle/username which is used in the HTML header
 ##         metadata (without the @ character)

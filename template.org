@@ -83,7 +83,7 @@ Have fun with modifying lazyblorg to your requirements!
           </a>
         </li>
         <li>
-          <a href="./about">
+          <a href="./about-this-blorg">
             <i class="fa fa-user"></i>
           </a>
         </li>
@@ -113,7 +113,7 @@ Have fun with modifying lazyblorg to your requirements!
           </a>
         </li>
         <li>
-          <a href="./about">
+          <a href="./about-this-blorg">
             <i class="fa fa-user"></i> About
           </a>
         </li>
