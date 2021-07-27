@@ -245,7 +245,15 @@ class Lazyblorg(object):
         # for documentation about the implemented elements: see
         # id:implemented-org-elements in dev/lazyblorg.org
         for element in [
-                'common-headbar',
+                'common-test',
+                'common-metadata',
+                'common-style',
+                'common-rss',
+                'common-header',
+                'common-main-container-begin',
+                'common-main-container-end',
+                'common-sidebar',
+                'common-footer',
                 'article-header',
                 'article-footer',
                 'article-header-begin',

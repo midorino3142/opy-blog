@@ -63,11 +63,74 @@ Have fun with modifying lazyblorg to your requirements!
 
 ** General elements
 
+*** Test
+
+For debug purpose only !
+
+#+NAME: common-test
+#+BEGIN_EXPORT HTML
+<div style="position: fixed; z-index: 999; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: red;">
+  <b>This is a new common test element !</b>
+</div>
+#+END_EXPORT
+
+*** Head
+
+Do not use for =<head>= contains page specific element(s) (ex : =<title>=) !
+
+#+NAME: common-head
+#+BEGIN_EXPORT HTML
+<head>
+  #COMMON-METADATA#
+
+  #COMMON-STYLE#
+
+  #COMMON-RSS#
+
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
+
+  <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
+
+  <title>#BLOG-NAME#</title>
+</head>
+#+END_EXPORT
+
+**** Metadata
+
+#+NAME: common-metadata
+#+BEGIN_EXPORT HTML
+<meta charset="UTF-8">
+<meta name="author" content="#AUTHOR-NAME#" />
+<meta name="generator" content="lazyblorg" />
+#+END_EXPORT
+
+**** Style
+
+#+NAME: common-style
+#+BEGIN_EXPORT HTML
+<link rel="stylesheet" href="#BASE-URL#/css/normalize.css" type="text/css"/>
+<link rel="stylesheet" href="#BASE-URL#/css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="#BASE-URL#/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style" href="#CSS-URL#" type="text/css" media="screen"/>
+#+END_EXPORT
+
+**** RSS
+
+#+NAME: common-rss
+#+BEGIN_EXPORT HTML
+<link rel="alternate" type="application/atom+xml"
+      title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+<link rel="alternate" type="application/atom+xml"
+      title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+<link rel="alternate" type="application/atom+xml"
+      title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
+#+END_EXPORT
+
 *** Headbar
 
-#+NAME: common-headbar
+#+NAME: common-header
 #+BEGIN_EXPORT HTML
-<!-- COMMON HEADBAR BEGIN -->
+<!-- COMMON HEADER BEGIN -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -161,7 +224,210 @@ Have fun with modifying lazyblorg to your requirements!
     </div>
   </div>
 </div>
-<!-- COMMON HEADBAR END -->
+<!-- COMMON HEADER END -->
+#+END_EXPORT
+
+*** Main Container
+
+**** Main Container Begin
+
+#+NAME: common-main-container-begin
+#+BEGIN_EXPORT HTML
+<!-- COMMON MAIN CONTAINER BEGIN -->
+<div class="container" style="min-height: 100%;height: auto !important;height: 100%;">
+  <div class="row" style="padding-bottom:80px;padding-top:80px;">
+    <div class="col-xl-21 col-lg-20 col-md-18">
+      <div>
+#+END_EXPORT
+
+**** Main Container End
+
+#+NAME: common-main-container-end
+#+BEGIN_EXPORT HTML
+</div>
+</div>
+
+#COMMON-SIDEBAR#
+
+</div>
+</div>
+<!-- COMMON MAIN CONTAINER END -->
+#+END_EXPORT
+
+*** Sidebar
+
+#+NAME: common-sidebar
+#+BEGIN_EXPORT HTML
+<!-- COMMON SIDEBAR BEGIN -->
+<div class="col-xl-3 col-lg-4 col-md-6" id="sidebar">
+  <aside>
+    <section>
+      <div class="sidebar-container">
+        <!--
+        <div class="sidebar-item hidden-xs">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>
+                <a href="./tags">
+                  <i class="fa fa-tags fa-lg"></i>
+                  <span class="icon-label">Tags</span>
+                </a>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group list-inline tagcloud" id="tags">
+                <li class="list-group-item tag-4">
+                  <a href="//farseerfc.me/tag/japan.html"> japan <sup> 1</sup>
+                  </a>
+                </li>
+                <li class="list-group-item tag-4">
+                  <a href="//farseerfc.me/tag/academic.html"> academic <sup> 1</sup>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        -->
+        <div class="sidebar-item hidden-xs">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>
+                <i class="fa fa-rss"></i>
+                <span class="icon-label">RSS</span>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml" title="Feeds with links only (most reliable)">Feeds with links only</a>
+              <br/>
+              <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" title="Feeds with teasers">Feeds with teasers</a>
+              <br/>
+              <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" title="Feeds with full contents">Feeds with full contents</a>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-item hidden-xs">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>
+                <a href="https://github.com/midorino" title="@midorino">
+                  <i class="fab fa-github fa-lg"></i>
+                  <span class="icon-label">GitHub</span>
+                </a>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <div class="list-group">
+                <a href="https://github.com/midorino/graw" target="_blank" class="list-group-item list-group-item-action">
+                  <h3><i class="fa fa-code"></i> GRAW</h3>
+                  <p>
+                    Simple (static) virtual race around the world.
+                  </p>
+                  <p style="text-align:right">
+                    <i class="fab fa-html5"></i>
+                    &bull;
+                    <i class="fab fa-python"></i>
+                  </p>
+                </a>
+                <hr/>
+                <a href="https://github.com/midorino/midorino.github.io" target="_blank" class="list-group-item list-group-item-action">
+                  <h3><i class="fa fa-code"></i> GitHub Pages</h3>
+                  <p>
+                    Blog static ouput from Org files.
+                  </p>
+                  <p style="text-align:right">
+                    <i class="fab fa-html5"></i>
+                    &bull;
+                    <i class="fab fa-python"></i>
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        <div class="sidebar-item hidden-xs">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>
+                <a href="https://root-me.org/midorino" title="Midorino profile on Root Me">
+                  <i class="fas fa-skull"></i>
+                  <span class="icon-label">Root Me</span>
+                </a>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <div id="rootme_badge">
+                <div class="list-group-item">
+                  <!--
+                  <img src="https://root-me-badge.cloud.duboc.xyz/storage_clients/26d43555fef9f96f2f4b01935d87565f/static_badge_dark.png" />
+                  -->
+                  Coming soon...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </aside>
+</div>
+<!-- COMMON SIDEBAR END -->
+#+END_EXPORT
+
+*** Footer
+
+#+NAME: common-footer
+#+BEGIN_EXPORT HTML
+<!-- COMMON FOOTER BEGIN -->
+<footer id="fcfooter" style="background-color: #00786c; border: 0; border-radius: 0; color: rgba(255,255,255,0.84); height: 60px; margin-top: -80px; clear:both; position: relative;">
+  <hr />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-24">
+        <p>
+          Authored in
+          <a style="color:white;" href="//orgmode.org">
+            Org mode
+          </a>
+          &nbsp;&bull;&nbsp;
+          Generated by
+          <a style="color:white;" href="https://github.com/novoid/lazyblorg">
+            lazyblorg
+          </a>
+          &nbsp;&bull;&nbsp;
+          Designed from
+          <a style="color:white;" href="http://farseerfc.me/">
+            farseerfc
+          </a>
+          &nbsp;&bull;&nbsp;
+          <a style="color:white;" rel="license" title="Creative Commons License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <i class="fab fa-creative-commons"></i>
+            <i class="fab fa-creative-commons-by"></i>
+            <i class="fab fa-creative-commons-nc"></i>
+            <i class="fab fa-creative-commons-sa"></i>
+          </a>
+          &nbsp;&bull;&nbsp;
+          <a style="color:white;" href="//validator.w3.org/check/referer">
+            HTML5
+          </a>
+          &nbsp;&bull;&nbsp;
+          <a style="color:white;" href="//jigsaw.w3.org/css-validator/">
+            CSS3
+          </a>
+          &nbsp;&bull;&nbsp;
+          <a style="color:white;" href="https://web.archive.org/web/*/#DOMAIN#/">
+            Archive
+          </a>
+          &nbsp;&bull;&nbsp;
+          <a style="color:white;" href="https://jeffhuang.com/designed_to_last/">
+            Designed to Last
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- COMMON FOOTER END -->
 #+END_EXPORT
 
 *** Sections
@@ -373,55 +639,35 @@ With name/label:
 **** Header
 
 - #BLOGNAME#: short name of the blog
-- #COMMON-HEADBAR# : the sidebar content which is shared on all pages
+- #COMMON-HEADER# : the header content which is shared on all pages
 - #ARTICLE-ID#: Org-mode ID property of the blog entry
 
 #+NAME: entrypage-header
 #+BEGIN_EXPORT HTML
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- COMMON HEAD BEGIN -->
+
 <head>
-  <!-- COMMON METADATA BEGIN -->
-  <meta charset="UTF-8">
-  <meta name="author" content="#AUTHOR-NAME#" />
-  <meta name="generator" content="lazyblorg" />
-  <!-- COMMON METADATA END -->
+  #COMMON-METADATA#
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  #COMMON-STYLE#
 
-  <!-- COMMON CSS BEGIN -->
-  <link rel="stylesheet" href="../../../../css/normalize.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/bootstrap.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style" href="#CSS-URL#" type="text/css" media="screen"/>
-  <!-- COMMON CSS END -->
+  #COMMON-RSS#
 
-  <!-- COMMON RSS FEEDS BEGIN -->
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
-  <!-- COMMON RSS FEEDS END -->
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
   <title>#BLOG-NAME#</title>
 </head>
-<!-- COMMON HEAD END -->
 
 <body>
-#COMMON-HEADBAR#
+  #COMMON-HEADER#
 
-<!-- COMMON MAIN CONTAINER BEGIN -->
-<div class="container" style="min-height: 100%;height: auto !important;height: 100%;">
-  <div class="row" style="padding-bottom:80px;padding-top:80px;">
-    <div class="col-xl-21 col-lg-20 col-md-18">
-      <div>
-        <!-- SPECIFIC CONTAINER BEGIN -->
-        <div>
+  #COMMON-MAIN-CONTAINER-BEGIN#
+
+    <!-- SPECIFIC CONTAINER BEGIN -->
+    <div>
 #+END_EXPORT
 
 **** Article-Preview
@@ -509,179 +755,13 @@ With name/label:
 #+NAME: entrypage-footer
 #+BEGIN_EXPORT HTML
 
-        </div>
-        <!-- SPECIFIC CONTAINER END -->
-      </div>
-    </div>
-
-    <!-- COMMON SIDEBAR BEGIN -->
-    <div class="col-xl-3 col-lg-4 col-md-6" id="sidebar">
-      <aside>
-        <section>
-          <div class="sidebar-container">
-            <!--
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="./tags">
-                      <i class="fa fa-tags fa-lg"></i>
-                      <span class="icon-label">Tags</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/japan.html"> japan <sup> 1</sup>
-                      </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/academic.html"> academic <sup> 1</sup>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            -->
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <i class="fa fa-rss"></i>
-                    <span class="icon-label">RSS</span>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml" title="Feeds with links only (most reliable)">Feeds with links only</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" title="Feeds with teasers">Feeds with teasers</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" title="Feeds with full contents">Feeds with full contents</a>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://github.com/midorino" title="@midorino">
-                      <i class="fab fa-github fa-lg"></i>
-                      <span class="icon-label">GitHub</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div class="list-group">
-                    <a href="https://github.com/midorino/graw" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GRAW</h3>
-                      <p>
-                        Simple (static) virtual race around the world.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                    <hr/>
-                    <a href="https://github.com/midorino/midorino.github.io" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GitHub Pages</h3>
-                      <p>
-                        Blog static ouput from Org files.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://root-me.org/midorino" title="Midorino profile on Root Me">
-                      <i class="fas fa-skull"></i>
-                      <span class="icon-label">Root Me</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div id="rootme_badge">
-                    <div class="list-group-item">
-                      <!--
-                      <img src="https://root-me-badge.cloud.duboc.xyz/storage_clients/26d43555fef9f96f2f4b01935d87565f/static_badge_dark.png" />
-                      -->
-                      Coming soon...
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </section>
-      </aside>
-    </div>
-    <!-- COMMON SIDEBAR END -->
-  </div>
 </div>
-<!-- COMMON MAIN CONTAINER END -->
+<!-- SPECIFIC CONTAINER END -->
 
-<!-- COMMON FOOTER BEGIN -->
-<footer id="fcfooter" style="background-color: #00786c;border: 0;border-radius: 0;color: rgba(255,255,255,0.84);height: 60px;margin-top: -80px;clear:both;position: relative;">
-  <hr />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-24">
-        <p>
-          Authored in
-          <a style="color:white;" href="//orgmode.org">
-            Org mode
-          </a>
-          &nbsp;&bull;&nbsp;
-          Generated by
-          <a style="color:white;" href="https://github.com/novoid/lazyblorg">
-            lazyblorg
-          </a>
-          &nbsp;&bull;&nbsp;
-          Designed from
-          <a style="color:white;" href="http://farseerfc.me/">
-            farseerfc
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" rel="license" title="Creative Commons License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            <i class="fab fa-creative-commons"></i>
-            <i class="fab fa-creative-commons-by"></i>
-            <i class="fab fa-creative-commons-nc"></i>
-            <i class="fab fa-creative-commons-sa"></i>
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//validator.w3.org/check/referer">
-            HTML5
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//jigsaw.w3.org/css-validator/">
-            CSS3
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://web.archive.org/web/*/#DOMAIN#/">
-            Archive
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://jeffhuang.com/designed_to_last/">
-            Designed to Last
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- COMMON FOOTER END -->
+#COMMON-MAIN-CONTAINER-END#
+
+#COMMON-FOOTER#
+
 </body>
 </html>
 #+END_EXPORT
@@ -697,48 +777,28 @@ With name/label:
 #+BEGIN_EXPORT HTML
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- COMMON HEAD BEGIN -->
+
 <head>
-  <!-- COMMON METADATA BEGIN -->
-  <meta charset="UTF-8">
-  <meta name="author" content="#AUTHOR-NAME#" />
-  <meta name="generator" content="lazyblorg" />
-  <!-- COMMON METADATA END -->
+  #COMMON-METADATA#
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  #COMMON-STYLE#
 
-  <!-- COMMON CSS BEGIN -->
-  <link rel="stylesheet" href="../../../../css/normalize.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/bootstrap.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" title="Midorino's Blorg Standard CSS Style" href="./css/style.css" type="text/css" media="screen"/>
-  <!-- COMMON CSS END -->
+  #COMMON-RSS#
 
-  <!-- COMMON RSS FEEDS BEGIN -->
-  <link rel="alternate" type="application/atom+xml"
-        title="Midorino's Blorg (links only)" href="//midorino.pro/feeds/lazyblorg-all.atom_1.0.links-only.xml" />
-  <link rel="alternate" type="application/atom+xml"
-        title="Midorino's Blorg (article teasers)" href="//midorino.pro/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" />
-  <link rel="alternate" type="application/atom+xml"
-        title="Midorino's Blorg (full content)" href="//midorino.pro/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" />
-  <!-- COMMON RSS FEEDS END -->
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
   <title>#BLOG-NAME# | #ARTICLE-TITLE#</title>
 </head>
-<!-- COMMON HEAD END -->
 
 <body>
-#COMMON-HEADBAR#
+  #COMMON-HEADER#
 
-<!-- COMMON MAIN CONTAINER BEGIN -->
-<div class="container" style="min-height: 100%;height: auto !important;height: 100%;">
-  <div class="row" style="padding-bottom:80px;padding-top:80px;">
-    <div class="col-xl-21 col-lg-20 col-md-18">
-      <div>
-        <!-- SPECIFIC CONTAINER BEGIN -->
-        <div>
+  #COMMON-MAIN-CONTAINER-BEGIN#
+
+    <!-- SPECIFIC CONTAINER BEGIN -->
+    <div>
 #+END_EXPORT
 
 **** Top of Article
@@ -751,7 +811,7 @@ With name/label:
   date-time format (e.g., 2011-10-30T15:00+02:00)
 - #ARTICLE-PUBLISHED-HUMAN-READABLE#: time-stamp of publishing in
   human readable format (e.g., 2011-10-30T15:00)
-- #COMMON-HEADBAR# : the sidebar content which is shared on all pages
+- #COMMON-HEADER# : the header content which is shared on all pages
 
 #+NAME: persistent-header-begin
 #+BEGIN_EXPORT HTML
@@ -798,179 +858,13 @@ With name/label:
 #+NAME: persistent-footer
 #+BEGIN_EXPORT HTML
 
-        </div>
-        <!-- SPECIFIC CONTAINER END -->
-      </div>
-    </div>
-
-    <!-- COMMON SIDEBAR BEGIN -->
-    <div class="col-xl-3 col-lg-4 col-md-6" id="sidebar">
-      <aside>
-        <section>
-          <div class="sidebar-container">
-            <!--
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="./tags">
-                      <i class="fa fa-tags fa-lg"></i>
-                      <span class="icon-label">Tags</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/japan.html"> japan <sup> 1</sup>
-                      </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/academic.html"> academic <sup> 1</sup>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            -->
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <i class="fa fa-rss"></i>
-                    <span class="icon-label">RSS</span>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml" title="Feeds with links only (most reliable)">Feeds with links only</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" title="Feeds with teasers">Feeds with teasers</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" title="Feeds with full contents">Feeds with full contents</a>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://github.com/midorino" title="@midorino">
-                      <i class="fab fa-github fa-lg"></i>
-                      <span class="icon-label">GitHub</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div class="list-group">
-                    <a href="https://github.com/midorino/graw" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GRAW</h3>
-                      <p>
-                        Simple (static) virtual race around the world.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                    <hr/>
-                    <a href="https://github.com/midorino/midorino.github.io" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GitHub Pages</h3>
-                      <p>
-                        Blog static ouput from Org files.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://root-me.org/midorino" title="Midorino profile on Root Me">
-                      <i class="fas fa-skull"></i>
-                      <span class="icon-label">Root Me</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div id="rootme_badge">
-                    <div class="list-group-item">
-                      <!--
-                      <img src="https://root-me-badge.cloud.duboc.xyz/storage_clients/26d43555fef9f96f2f4b01935d87565f/static_badge_dark.png" />
-                      -->
-                      Coming soon...
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </section>
-      </aside>
-    </div>
-    <!-- COMMON SIDEBAR END -->
-  </div>
 </div>
-<!-- COMMON MAIN CONTAINER END -->
+<!-- SPECIFIC CONTAINER END -->
 
-<!-- COMMON FOOTER BEGIN -->
-<footer id="fcfooter" style="background-color: #00786c;border: 0;border-radius: 0;color: rgba(255,255,255,0.84);height: 60px;margin-top: -80px;clear:both;position: relative;">
-  <hr />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-24">
-        <p>
-          Authored in
-          <a style="color:white;" href="//orgmode.org">
-            Org mode
-          </a>
-          &nbsp;&bull;&nbsp;
-          Generated by
-          <a style="color:white;" href="https://github.com/novoid/lazyblorg">
-            lazyblorg
-          </a>
-          &nbsp;&bull;&nbsp;
-          Designed from
-          <a style="color:white;" href="http://farseerfc.me/">
-            farseerfc
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" rel="license" title="Creative Commons License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            <i class="fab fa-creative-commons"></i>
-            <i class="fab fa-creative-commons-by"></i>
-            <i class="fab fa-creative-commons-nc"></i>
-            <i class="fab fa-creative-commons-sa"></i>
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//validator.w3.org/check/referer">
-            HTML5
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//jigsaw.w3.org/css-validator/">
-            CSS3
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://web.archive.org/web/*/#DOMAIN#/">
-            Archive
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://jeffhuang.com/designed_to_last/">
-            Designed to Last
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- COMMON FOOTER END -->
+#COMMON-MAIN-CONTAINER-END#
+
+#COMMON-FOOTER#
+
 </body>
 </html>
 #+END_EXPORT
@@ -986,48 +880,28 @@ With name/label:
 #+BEGIN_EXPORT HTML
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- COMMON HEAD BEGIN -->
+
 <head>
-  <!-- COMMON METADATA BEGIN -->
-  <meta charset="UTF-8">
-  <meta name="author" content="#AUTHOR-NAME#" />
-  <meta name="generator" content="lazyblorg" />
-  <!-- COMMON METADATA END -->
+  #COMMON-METADATA#
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  #COMMON-STYLE#
 
-  <!-- COMMON CSS BEGIN -->
-  <link rel="stylesheet" href="../../../../css/normalize.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/bootstrap.min.css" type="text/css"/>
-  <link rel="stylesheet" href="../../../../css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style" href="#CSS-URL#" type="text/css" media="screen"/>
-  <!-- COMMON CSS END -->
+  #COMMON-RSS#
 
-  <!-- COMMON RSS FEEDS BEGIN -->
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
-  <link rel="alternate" type="application/atom+xml"
-        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
-  <!-- COMMON RSS FEEDS END -->
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
   <title>#BLOG-NAME# | #ARTICLE-TITLE#</title>
 </head>
-<!-- COMMON HEAD END -->
 
 <body>
-#COMMON-HEADBAR#
+  #COMMON-HEADER#
 
-<!-- COMMON MAIN CONTAINER BEGIN -->
-<div class="container" style="min-height: 100%;height: auto !important;height: 100%;">
-  <div class="row" style="padding-bottom:80px;padding-top:80px;">
-    <div class="col-xl-21 col-lg-20 col-md-18">
-      <div>
-        <!-- SPECIFIC CONTAINER BEGIN -->
-        <div>
+  #COMMON-MAIN-CONTAINER-BEGIN#
+
+    <!-- SPECIFIC CONTAINER BEGIN -->
+    <div>
 #+END_EXPORT
 
 *** Top of Article
@@ -1040,7 +914,7 @@ With name/label:
   date-time format (e.g., 2011-10-30T15:00+02:00)
 - #ARTICLE-PUBLISHED-HUMAN-READABLE#: time-stamp of publishing in
   human readable format (e.g., 2011-10-30T15:00)
-- #COMMON-HEADBAR# : the sidebar content which is shared on all pages
+- #COMMON-HEADER# : the header content which is shared on all pages
 
 #+NAME: article-header-begin
 #+BEGIN_EXPORT HTML
@@ -1115,179 +989,13 @@ With name/label:
 #+NAME: article-footer
 #+BEGIN_EXPORT HTML
 
-        </div>
-        <!-- SPECIFIC CONTAINER END -->
-      </div>
-    </div>
-
-    <!-- COMMON SIDEBAR BEGIN -->
-    <div class="col-xl-3 col-lg-4 col-md-6" id="sidebar">
-      <aside>
-        <section>
-          <div class="sidebar-container">
-            <!--
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="./tags">
-                      <i class="fa fa-tags fa-lg"></i>
-                      <span class="icon-label">Tags</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/japan.html"> japan <sup> 1</sup>
-                      </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                      <a href="//farseerfc.me/tag/academic.html"> academic <sup> 1</sup>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            -->
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <i class="fa fa-rss"></i>
-                    <span class="icon-label">RSS</span>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml" title="Feeds with links only (most reliable)">Feeds with links only</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml" title="Feeds with teasers">Feeds with teasers</a>
-                  <br/>
-                  <a class="list-group-item" href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml" title="Feeds with full contents">Feeds with full contents</a>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://github.com/midorino" title="@midorino">
-                      <i class="fab fa-github fa-lg"></i>
-                      <span class="icon-label">GitHub</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div class="list-group">
-                    <a href="https://github.com/midorino/graw" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GRAW</h3>
-                      <p>
-                        Simple (static) virtual race around the world.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                    <hr/>
-                    <a href="https://github.com/midorino/midorino.github.io" target="_blank" class="list-group-item list-group-item-action">
-                      <h3><i class="fa fa-code"></i> GitHub Pages</h3>
-                      <p>
-                        Blog static ouput from Org files.
-                      </p>
-                      <p style="text-align:right">
-                        <i class="fab fa-html5"></i>
-                        &bull;
-                        <i class="fab fa-python"></i>
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            <div class="sidebar-item hidden-xs">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>
-                    <a href="https://root-me.org/midorino" title="Midorino profile on Root Me">
-                      <i class="fas fa-skull"></i>
-                      <span class="icon-label">Root Me</span>
-                    </a>
-                  </h4>
-                </div>
-                <div class="panel-body">
-                  <div id="rootme_badge">
-                    <div class="list-group-item">
-                      <!--
-                      <img src="https://root-me-badge.cloud.duboc.xyz/storage_clients/26d43555fef9f96f2f4b01935d87565f/static_badge_dark.png" />
-                      -->
-                      Coming soon...
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </section>
-      </aside>
-    </div>
-    <!-- COMMON SIDEBAR END -->
-  </div>
 </div>
-<!-- COMMON MAIN CONTAINER END -->
+<!-- SPECIFIC CONTAINER END -->
 
-<!-- COMMON FOOTER BEGIN -->
-<footer id="fcfooter" style="background-color: #00786c;border: 0;border-radius: 0;color: rgba(255,255,255,0.84);height: 60px;margin-top: -80px;clear:both;position: relative;">
-  <hr />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-24">
-        <p>
-          Authored in
-          <a style="color:white;" href="//orgmode.org">
-            Org mode
-          </a>
-          &nbsp;&bull;&nbsp;
-          Generated by
-          <a style="color:white;" href="https://github.com/novoid/lazyblorg">
-            lazyblorg
-          </a>
-          &nbsp;&bull;&nbsp;
-          Designed from
-          <a style="color:white;" href="http://farseerfc.me/">
-            farseerfc
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" rel="license" title="Creative Commons License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            <i class="fab fa-creative-commons"></i>
-            <i class="fab fa-creative-commons-by"></i>
-            <i class="fab fa-creative-commons-nc"></i>
-            <i class="fab fa-creative-commons-sa"></i>
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//validator.w3.org/check/referer">
-            HTML5
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="//jigsaw.w3.org/css-validator/">
-            CSS3
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://web.archive.org/web/*/#DOMAIN#/">
-            Archive
-          </a>
-          &nbsp;&bull;&nbsp;
-          <a style="color:white;" href="https://jeffhuang.com/designed_to_last/">
-            Designed to Last
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- COMMON FOOTER END -->
+#COMMON-MAIN-CONTAINER-END#
+
+#COMMON-FOOTER#
+
 </body>
 </html>
 #+END_EXPORT
@@ -1312,7 +1020,7 @@ A single page which is used as template for =example.com/tags/index.html=.
   <meta name="generator" content="lazyblorg" />
   <meta name="description" content="Tag overview page" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@#TWITTER-HANDLE#" />
@@ -1366,7 +1074,7 @@ A single page which is used as template for =example.com/tags/index.html=.
 
 	</header>
 
-  #COMMON-HEADBAR#
+  #COMMON-HEADER#
 
   <article class="common-article">
 
@@ -1443,7 +1151,7 @@ Pages that describe a tag. Corresponding Org-mode entries must have:
   <meta name="description" content="Tag page for tag #ARTICLE-TITLE#" />
   <meta name="orgmode-id" content="#ARTICLE-ID#" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@#TWITTER-HANDLE#" />
@@ -1491,7 +1199,7 @@ Pages that describe a tag. Corresponding Org-mode entries must have:
   date-time format (e.g., 2011-10-30T15:00+02:00)
 - #ARTICLE-PUBLISHED-HUMAN-READABLE#: time-stamp of publishing in
   human readable format (e.g., 2011-10-30T15:00)
-- #COMMON-HEADBAR# : the sidebar content which is shared on all pages
+- #COMMON-HEADER# : the header content which is shared on all pages
 
 #+NAME: tagpage-header-begin
 #+BEGIN_EXPORT HTML
@@ -1544,7 +1252,7 @@ Pages that describe a tag. Corresponding Org-mode entries must have:
 
 	</header>
 
-  #COMMON-HEADBAR#
+  #COMMON-HEADER#
 
   <article class="common-article">
 
@@ -1594,7 +1302,7 @@ FIXXME
   <meta name="author" content="#AUTHOR-NAME#" />
   <meta name="generator" content="lazyblorg" />
 
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="#BASE-URL#/favicon.ico">
 
   <link rel="stylesheet" href="../../../../css/normalize.css" type="text/css"/>
   <link rel="stylesheet" href="../../../../css/bootstrap.min.css" type="text/css"/>

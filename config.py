@@ -22,7 +22,8 @@ AUTHOR_NAME = 'Midorino'
 BLOG_NAME = 'Midorino\'s Blorg'
 
 ## strings: Define your URLs and your name below:
-DOMAIN = 'blorg.midorino.pro'
+DOMAIN = 'blorg.midorino.pro' # For production
+# DOMAIN = 'localhost:3142' # For test
 BASE_URL = '//' + DOMAIN
 CSS_URL = BASE_URL + '/css/style.css'
 BLOG_LOGO = BASE_URL + '/img/midorino-logo.png'

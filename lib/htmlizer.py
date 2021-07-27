@@ -1040,8 +1040,8 @@ class Htmlizer(object):
             htmlcontent += self.template_definition_by_name(articlepart)
 
         htmlcontent = htmlcontent.replace(
-            '#COMMON-HEADBAR#',
-            self.template_definition_by_name('common-headbar'))
+            '#COMMON-HEADER#',
+            self.template_definition_by_name('common-header'))
 
         htmlcontent = htmlcontent.replace(
             '#TAGOVERVIEW-CLOUD#',
@@ -2023,7 +2023,10 @@ class Htmlizer(object):
         General blog placeholders (independent of an article entry) are:
         - #DOMAIN#: the domain (server) of the blog (without "(http:)//" or paths)
         - #BASE_URL#: the domain (server) of the blog with "(http:)//"
-        - #COMMON-HEADBAR#: the side-bar which is shared on all pages
+        - #COMMON-HEAD#: the <head> which is shared on all pages
+        - #COMMON-HEADER#: the header which is shared on all pages
+        - #COMMON-SIDEBAR#: the sidebar which is shared on all pages
+        - #COMMON-FOOTER#: the footer which is shared on all pages
         - and further more
 
         This method replaces all placeholders from above with their
@@ -2033,9 +2036,15 @@ class Htmlizer(object):
         @param return: content with replaced placeholders
         """
 
-        content = content.replace(
-            '#COMMON-HEADBAR#',
-            self.template_definition_by_name('common-headbar'))
+        content = content.replace('#COMMON-TEST#', self.template_definition_by_name('common-test'))
+        content = content.replace('#COMMON-METADATA#', self.template_definition_by_name('common-metadata'))
+        content = content.replace('#COMMON-STYLE#', self.template_definition_by_name('common-style'))
+        content = content.replace('#COMMON-RSS#', self.template_definition_by_name('common-rss'))
+        content = content.replace('#COMMON-HEADER#', self.template_definition_by_name('common-header'))
+        content = content.replace('#COMMON-MAIN-CONTAINER-BEGIN#', self.template_definition_by_name('common-main-container-begin'))
+        content = content.replace('#COMMON-MAIN-CONTAINER-END#', self.template_definition_by_name('common-main-container-end'))
+        content = content.replace('#COMMON-SIDEBAR#', self.template_definition_by_name('common-sidebar'))
+        content = content.replace('#COMMON-FOOTER#', self.template_definition_by_name('common-footer'))
         content = content.replace('#TOP-TAG-LIST#', self._generate_top_tag_list())  # FIXXME: generate only once for performance reasons?
         content = content.replace('#DOMAIN#', config.DOMAIN)
         content = content.replace('#BASE-URL#', config.BASE_URL)
